@@ -36,4 +36,16 @@ describe('Account', () => {
     account.debit(1000)
     expect(account.balance).toEqual(1000)
   })
+
+  it('credits get rounded', () => {
+    const account = new Account(100)
+    account.credit(1.004)
+    expect(account.balance).toEqual(99.00)
+  })
+
+  it('debits get rounded', () => {
+    const account = new Account(100)
+    account.debit(1.004)
+    expect(account.balance).toEqual(101.00)
+  })
 })
